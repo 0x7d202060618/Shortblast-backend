@@ -12,9 +12,9 @@ export interface BarData {
 export class PriceService {
   // Mock price data
   private mockPriceData: BarData[] = [
-    { time: 1638316800 * 1000, low: 100, high: 110, open: 105, close: 108 },
-    { time: 1638403200 * 1000, low: 101, high: 111, open: 106, close: 109 },
-    { time: 1638489600 * 1000, low: 102, high: 112, open: 107, close: 110 },
+    { time: 1728707103, low: 100, high: 110, open: 105, close: 108 },
+    { time: 1728796103, low: 101, high: 111, open: 106, close: 109 },
+    { time: 1728798103, low: 102, high: 112, open: 107, close: 110 },
     // Add more mock data as needed
   ];
 

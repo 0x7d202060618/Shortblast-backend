@@ -6,8 +6,8 @@ export class PriceController {
   constructor(private readonly priceService: PriceService) {}
 
   @Get()
-  async getPrice(): Promise<{ price: BarData[] }> {
+  async getPrice(): Promise<{ data: BarData[] }> {
     const price = await this.priceService.getTokenPrice();
-    return { price };
+    return { data: price };
   }
 }
