@@ -28,6 +28,11 @@ export class PriceController {
     @Query('limit') limit: string,
     @Query('toTs') toTs: string,
   ): Promise<{ data: ChartData[] }> {
+    console.log({
+      address,
+      toTs,
+    });
+
     const priceData = await this.prisma.tokenPrice.findMany({
       select: {
         createdAt: true,
@@ -46,12 +51,17 @@ export class PriceController {
       },
     });
 
-    const chartData = transformCandlesTick(
-      priceData.map((data) => ({
-        ...data,
-        price: data.price.mul(100000000),
-      })),
-    );
+    // const chartData = transformCandlesTick(
+    //   priceData.map((data) => ({
+    //     ...data,
+    //     // price: data.price.mul(100000000),
+    //   })),
+    // );
+    const chartData = transformCandlesTick(priceData);
+    console.log({
+      chartData,
+      priceData,
+    });
     return { data: chartData };
   }
 }

@@ -18,7 +18,13 @@ export const transformCandlesTick = (
   interval: number = 20 * 60 * 1000,
 ): ChartData[] => {
   const result: ChartData[] = [];
-  let currentCandlestick: ChartData | null = null;
+  let currentCandlestick: ChartData = {
+    time: new Date(data[0].createdAt).getTime() / 1000,
+    open: data[0].price,
+    high: data[0].price,
+    low: data[0].price,
+    close: data[0].price,
+  };
   let intervalStart: number = new Date(data[0].createdAt).getTime();
 
   data.forEach(({ createdAt, price }) => {
